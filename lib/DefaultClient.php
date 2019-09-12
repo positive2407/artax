@@ -1094,7 +1094,7 @@ final class DefaultClient implements Client {
 
         return new ConnectionInfo(
             $socket->getLocalAddress(),
-            $socket->getRemoteAddress(),
+            $socket->getRemoteAddress() ?? '',
             $crypto ? TlsInfo::fromMetaData($crypto, \stream_context_get_options($socket->getResource())["ssl"]) : null
         );
     }
